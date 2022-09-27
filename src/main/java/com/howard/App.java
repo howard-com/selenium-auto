@@ -45,6 +45,10 @@ public class App {
         Timer timer2 = new Timer(2);
 
         Timing[] timings1 = new Timing[] {
+                new Timing(1200, 1214, new BasicTask[]{new TreasureTask()}),
+                new Timing(1215, 1224, new BasicTask[]{new RedHoodTask()}),
+                new Timing(1230, 1240, new BasicTask[]{new WorldBossTask()}),
+
                 new Timing(1900, 1909, new BasicTask[]{new WorldBossTask()}),
                 new Timing(1910, 1924, new BasicTask[]{new TreasureTask()}),
                 new Timing(1930, 1939, new BasicTask[]{new RedHoodTask()}),
@@ -54,6 +58,10 @@ public class App {
         };
 
         Timing[] timings2 = new Timing[] {
+                new Timing(1200, 1214, new BasicTask[]{new TreasureTask()}),
+                new Timing(1215, 1224, new BasicTask[]{new RedHoodTask()}),
+                new Timing(1230, 1240, new BasicTask[]{new WorldBossTask()}),
+
                 new Timing(1900, 1909, new BasicTask[]{new WorldBossTask()}),
                 new Timing(1910, 1924, new BasicTask[]{new TreasureTask()}),
                 new Timing(1930, 1939, new BasicTask[]{new RedHoodTask()}),
@@ -104,6 +112,9 @@ public class App {
         BasicTask[] tasks1 = null;
         BasicTask[] tasks2 = null;
 
+        GoldBossTask goldTask1 = new GoldBossTask();
+        GoldBossTask goldTask2 = new GoldBossTask();
+
         String command = null;       // 记录输入度的字符串
         do{
             System.out.print("等待命令输入>>>：");
@@ -117,6 +128,11 @@ public class App {
                     tasks1 = new BasicTask[]{new UpgradePropertyTask()};
                     tasks2 = new BasicTask[]{new UpgradePropertyTask()};
                     break;
+                case "card":
+                    System.out.println("将要启动: UpgradeCardTask");
+                    tasks1 = new BasicTask[]{new UpgradeCardTask()};
+                    tasks2 = new BasicTask[]{new UpgradeCardTask()};
+                    break;
                 case "ry":
                     System.out.println("将要启动: GloryTask");
                     tasks1 = new BasicTask[]{new GloryTask()};
@@ -127,10 +143,20 @@ public class App {
                     tasks1 = new BasicTask[]{new BossTask()};
                     tasks2 = new BasicTask[]{new BossTask()};
                     break;
+                case "shenshou":
+                    System.out.println("将要启动: MythicalTask");
+                    tasks1 = new BasicTask[]{new MythicalTask()};
+                    tasks2 = new BasicTask[]{new MythicalTask()};
+                    break;
                 case "clean":
                     System.out.println("将要启动: CleanBagTask");
                     tasks1 = new BasicTask[]{new CleanBagTask()};
                     tasks2 = new BasicTask[]{new CleanBagTask()};
+                    break;
+                case "gold":
+                    System.out.println("将要启动: GoldBossTask");
+                    tasks1 = new BasicTask[]{goldTask1};
+                    tasks2 = new BasicTask[]{goldTask2};
                     break;
                 case "end":
                     System.out.println("退出程序");
@@ -140,6 +166,15 @@ public class App {
                     System.out.println("将要启动: C_Daily");
                     tasks1 = new BasicTask[]{new C_Daily()};
                     tasks2 = new BasicTask[]{new C_Daily()};
+                    break;
+                case "keepclean":
+                    System.out.println("将要启动: 持续CleanBagTask");
+                    CleanBagTask cleanBagTask1 = new CleanBagTask();
+                    cleanBagTask1.g_loopCnt = 60;
+                    CleanBagTask cleanBagTask2 = new CleanBagTask();
+                    cleanBagTask2.g_loopCnt = 60;
+                    tasks1 = new BasicTask[]{cleanBagTask1};
+                    tasks2 = new BasicTask[]{cleanBagTask2};
                     break;
                 default:
                     System.out.println("无法识别的命令");
@@ -151,8 +186,19 @@ public class App {
             new Thread(new Runnable() { public void run() { worker2.startWork();}}).start();
         } while(!command.equals("end"));   // 如果输入的值不版是#就继续输入
 
-        worker1.stopWork();
-        worker2.stopWork();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                worker1.stopWork();
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                worker2.stopWork();
+            }
+        }).start();
     }
         // 启动线程
         //t.start();

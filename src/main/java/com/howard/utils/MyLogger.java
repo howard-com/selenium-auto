@@ -34,7 +34,10 @@ public class MyLogger {
     }
 
     private String getClassName() {
-        StackTraceElement ste = Thread.currentThread().getStackTrace()[5];
+
+        StackTraceElement[] stes = Thread.currentThread().getStackTrace();
+        StackTraceElement ste = stes[stes.length-2];
+
         String className = ste.getClassName();
         String methodName = ste.getMethodName();
         int lineNumber = ste.getLineNumber();

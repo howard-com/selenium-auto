@@ -19,7 +19,7 @@ public class WholePeopletBossTask extends BasicTask{
         //开始挑战
         clickAt(Coordination.BO_BF_QM_START);
         //等待挑战
-        Thread.sleep(90000);
+        Thread.sleep(150000);
         //返回主页
         clickAt(Coordination.T_BLANK);
         clickAt(Coordination.T_BLANK);

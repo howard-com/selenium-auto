@@ -1,6 +1,8 @@
 package com.howard.task;
 
+import com.howard.utils.Coordination;
 import com.howard.utils.MouseAction;
+import com.howard.utils.MyLogger;
 
 public abstract class BasicTask {
 
@@ -8,6 +10,7 @@ public abstract class BasicTask {
     public void setMouseAction(MouseAction g_mouseAction) {
         this.g_mouseAction = g_mouseAction;
     }
+    MyLogger myLogger = new MyLogger();
 
     public BasicTask() {};
 
@@ -15,7 +18,22 @@ public abstract class BasicTask {
         this.g_mouseAction = mouseAction;
     }
 
-    public abstract void run() throws InterruptedException;
+    protected abstract void run() throws InterruptedException;
+
+    public void lanuch() throws InterruptedException {
+
+        Thread.sleep(500);
+        //清空主页
+        clickAt(Coordination.T_BLANK);
+        clickAt(Coordination.T_BLANK);
+
+        this.run();
+
+        Thread.sleep(500);
+        //返回
+        clickAt(Coordination.T_BLANK);
+        clickAt(Coordination.T_BLANK);
+    }
 
     public void test() {
 

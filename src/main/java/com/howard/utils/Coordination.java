@@ -48,6 +48,16 @@ public class Coordination {
     public static int[] FB_DR_JY_TICKET_ADD = {105, -53};
     public static int[] FB_DR_JY_TICKET_BUY = {95, 39};
 
+
+    //*神兽岛*
+    public static int[] FB_SS_WUJIN = {-109, 413};
+    public static int[] FB_SS_WJ_LEFT = {-153, -269};
+    public static int[] FB_SS_WJ_START = {1, 263};
+    public static int[] FB_SS_WJ_CENTER = {-1, -477};
+    public static int[] FB_SS_WJ_RIGHT = {107, -477};
+    public static int[] FB_SS_WJ_RETURN = {313, 309};
+    public static int[] FB_SS_WJ_RETURN_YES = {91, 113};
+
     //------------------------------本服BOSS------------------------------
     public static int[] BO_BENFU = {-231, 489};
     //*装备*
@@ -57,8 +67,14 @@ public class Coordination {
     //*全民*
     public static int[] BO_BF_QUANMIN = {-53, 381};
     public static int[] BO_BF_QM_START = {-1, 201};
-
-
+    //*黄金*
+    public static int[] BO_BF_HUANGJIN = {165, 381};
+    public static int[] BO_BF_HJ_BOSS1 = {-131, -345};
+    public static int[] BO_BF_HJ_BOSS2 = {179, -291};
+    public static int[] BO_BF_HJ_BOSS3 = {-175, -145};
+    public static int[] BO_BF_HJ_BOSS4 = {197, -47};
+    public static int[] BO_BF_HJ_BOSS5 = {-41, 69};
+    public static int[] BO_BF_HJ_START = {124, 285};
 
     //------------------------------跨服BOSS------------------------------
     public static int[] BO_KUAFU = {-151, 489};

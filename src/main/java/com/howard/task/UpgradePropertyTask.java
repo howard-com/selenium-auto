@@ -92,5 +92,11 @@ public class UpgradePropertyTask extends BasicTask{
         clickAt(Coordination.T_BLANK);
         Thread.sleep(500);
 
+        UpgradeCardTask upgradeCardTask = new UpgradeCardTask(g_mouseAction);
+        upgradeCardTask.run();
+        //返回主页
+        clickAt(Coordination.T_BLANK);
+        clickAt(Coordination.T_BLANK);
+        Thread.sleep(500);
     }
 }

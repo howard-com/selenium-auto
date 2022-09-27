@@ -23,12 +23,14 @@ public class C_Daily extends BasicTask{
         UpgradePropertyTask upgradePropertyTask = new UpgradePropertyTask(action);
         GloryTask gloryTask = new GloryTask(action);
 
-        //wholePeopletBossTask.run();
-        equipementBossTask.run();
-        dailyInstanceTask.run();
-        expInstanceTask.run();
-        griffinTask.run();
-        wholePeopletBossTask.run();
-        gloryTask.run();
+        cleanBagTask.lanuch();
+        wholePeopletBossTask.lanuch();
+        equipementBossTask.lanuch();
+        dailyInstanceTask.lanuch();
+        expInstanceTask.lanuch();
+        griffinTask.lanuch();
+        equipementBossTask.lanuch();
+        wholePeopletBossTask.lanuch();
+        gloryTask.lanuch();
     }
 }

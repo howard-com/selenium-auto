@@ -4,6 +4,10 @@ import com.howard.utils.Coordination;
 import com.howard.utils.MouseAction;
 
 public class UpgradeCardTask extends BasicTask{
+    public UpgradeCardTask(){
+        super();
+    }
+
     public UpgradeCardTask(MouseAction mouseAction) {
         super(mouseAction);
     }

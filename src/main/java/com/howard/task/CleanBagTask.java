@@ -12,6 +12,8 @@ public class CleanBagTask extends BasicTask{
         super(mouseAction);
     }
 
+    public int g_loopCnt = 1;
+
     @Override
     public void run() throws InterruptedException {
         //点击背包
@@ -28,16 +30,20 @@ public class CleanBagTask extends BasicTask{
         clickAt(Coordination.T_BLANK);
         Thread.sleep(500);
 
-        //点击背包
-        clickAt(Coordination.D_BEIBAO);
-        //熔炼标签
-        clickAt(Coordination.BB_RONGLIAN);
-        //一键熔炼
-        clickAt(Coordination.BB_RL_RONLIAN);
-        Thread.sleep(8000);
-        //返回主页
-        clickAt(Coordination.T_BLANK);
-        clickAt(Coordination.T_BLANK);
+        //持续背包 自动升级
+        for (int i = 0; i < g_loopCnt ; i++) {
+            //点击背包
+            clickAt(Coordination.D_BEIBAO);
+            //熔炼标签
+            clickAt(Coordination.BB_RONGLIAN);
+            //一键熔炼
+            clickAt(Coordination.BB_RL_RONLIAN);
+            Thread.sleep(8000);
+            //返回主页
+            clickAt(Coordination.T_BLANK);
+            clickAt(Coordination.T_BLANK);
+            Thread.sleep(21000);
+        }
         Thread.sleep(500);
     }
 }

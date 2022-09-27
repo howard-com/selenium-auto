@@ -84,11 +84,11 @@ public class Worker {
             //array.add(new GloryTask(action));
             //array.add(new DailyInstanceTask(action));
             //array.add(new EmailTask(action));
+            //array.add(new BossTask(action));
             //array.add(new C_UpgrateAndClean(action));
             //array.add(new C_Daily(action));
-            //array.add(new BossTask(action));
             //array.add(new WorldBossTask(action));
-            array.add(new RedHoodTask(action));
+            //array.add(new RedHoodTask(action));
 
             res = array.toArray(new BasicTask[array.size()]);
         } else {
@@ -104,7 +104,7 @@ public class Worker {
     public void runTask(BasicTask tasks[]) {
         for (BasicTask task: tasks) {
             try {
-                task.run();
+                task.lanuch();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -18,7 +18,7 @@ public class GloryTask extends BasicTask{
         clickAt(Coordination.JJ_DANREN);
         //荣耀之巅
         clickAt(Coordination.JJ_DR_RONGYAO);
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 3; j++) {
             //匹配对手
             clickAt(Coordination.JJ_DR_RY_PIPEI);
             clickAt(Coordination.JJ_DR_RY_PIPEI);
