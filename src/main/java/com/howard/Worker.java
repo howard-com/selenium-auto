@@ -76,7 +76,7 @@ public class Worker {
             //array.add(new EquipementBossTask(action));
             //array.add(new WholePeopletBossTask(action));
             //array.add(new UpgradeCardTask(action));
-            //array.add(new BossTask(action));
+            array.add(new BossTask(action));
             //array.add(new BesiegeBossTask(action));
             //array.add(new TreasureTask(action));
             //array.add(new UpgradePropertyTask(action));

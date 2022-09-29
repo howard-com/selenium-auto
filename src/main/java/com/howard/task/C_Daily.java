@@ -26,6 +26,7 @@ public class C_Daily extends BasicTask{
         cleanBagTask.lanuch();
         wholePeopletBossTask.lanuch();
         equipementBossTask.lanuch();
+        cleanBagTask.lanuch();
         dailyInstanceTask.lanuch();
         expInstanceTask.lanuch();
         griffinTask.lanuch();
