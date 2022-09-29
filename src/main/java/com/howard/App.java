@@ -45,6 +45,9 @@ public class App {
         Timer timer2 = new Timer(2);
 
         Timing[] timings1 = new Timing[] {
+                new Timing(545, 559, new BasicTask[]{new MythicalTask()}),
+                new Timing(600, 630, new BasicTask[]{new BossTask()}),
+
                 new Timing(1200, 1214, new BasicTask[]{new TreasureTask()}),
                 new Timing(1215, 1224, new BasicTask[]{new RedHoodTask()}),
                 new Timing(1230, 1240, new BasicTask[]{new WorldBossTask()}),
@@ -52,12 +55,12 @@ public class App {
                 new Timing(1900, 1909, new BasicTask[]{new WorldBossTask()}),
                 new Timing(1910, 1924, new BasicTask[]{new TreasureTask()}),
                 new Timing(1930, 1939, new BasicTask[]{new RedHoodTask()}),
-
-                new Timing(600, 630, new BasicTask[]{new BossTask()}),
-
         };
 
         Timing[] timings2 = new Timing[] {
+                new Timing(545, 559, new BasicTask[]{new MythicalTask()}),
+                new Timing(600, 630, new BasicTask[]{new BossTask()}),
+
                 new Timing(1200, 1214, new BasicTask[]{new TreasureTask()}),
                 new Timing(1215, 1224, new BasicTask[]{new RedHoodTask()}),
                 new Timing(1230, 1240, new BasicTask[]{new WorldBossTask()}),
@@ -65,8 +68,6 @@ public class App {
                 new Timing(1900, 1909, new BasicTask[]{new WorldBossTask()}),
                 new Timing(1910, 1924, new BasicTask[]{new TreasureTask()}),
                 new Timing(1930, 1939, new BasicTask[]{new RedHoodTask()}),
-
-                new Timing(600, 630, new BasicTask[]{new BossTask()}),
         };
 
         timer1.setTimings(timings1);
@@ -75,7 +76,6 @@ public class App {
         timer2.setTimings(timings2);
         timer2.start();
     }
-
 
     public static void test3() {
         Worker worker1 = new Worker(1);
@@ -178,12 +178,17 @@ public class App {
                     break;
                 default:
                     System.out.println("无法识别的命令");
+                    tasks1 = null;
+                    tasks2 = null;
                     break;
             }
-            worker1.setTasks(tasks1);
-            worker2.setTasks(tasks2);
-            new Thread(new Runnable() { public void run() { worker1.startWork();}}).start();
-            new Thread(new Runnable() { public void run() { worker2.startWork();}}).start();
+            if (tasks1 != null ) {
+                worker1.setTasks(tasks1);
+                worker2.setTasks(tasks2);
+                new Thread(new Runnable() { public void run() { worker1.startWork();}}).start();
+                new Thread(new Runnable() { public void run() { worker2.startWork();}}).start();
+            }
+
         } while(!command.equals("end"));   // 如果输入的值不版是#就继续输入
 
         new Thread(new Runnable() {

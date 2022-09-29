@@ -52,7 +52,7 @@ public class Worker {
         WebDriver driver  = new ChromeDriver(options);
         driver.get("http://wan.baidu.com/game?gameId=26588310&serverId=11082&idfrom=5056");
         Thread.sleep(3000);
-        driver.manage().window().setSize(new Dimension(677, 1242));
+        driver.manage().window().setSize(new Dimension(600, 1000));
         driver.switchTo().frame(0);
         WebElement mainCanvas = driver.findElement(By.cssSelector("canvas"));
         MouseAction action = new MouseAction(driver, mainCanvas, 300);
